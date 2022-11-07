@@ -201,12 +201,12 @@ public class Banca
     }
 
 
-
     // Aggiungi Prestito
 
     public void AggiungiPrestito(Prestito nuovoPrestito)
     {
         Prestiti.Add(nuovoPrestito);
-        Console.WriteLine(nuovoPrestito);
+        
     }
+
 }

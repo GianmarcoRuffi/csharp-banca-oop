@@ -71,8 +71,17 @@
 //- cognome,
 //- codice fiscale
 //- stipendio
+using System.Reflection.Metadata.Ecma335;
+
 public class Cliente
+
 {
+
+    List<Prestito> Prestiti { get; set; }
+
+    
+
+
     public string Nome { get; set; }
     public string Cognome { get; set; }
     public string CodiceFiscale { get; set; }
@@ -88,4 +97,50 @@ public class Cliente
         CodiceFiscale = codiceFiscale;
         Stipendio = stipendio;
     }
+
+
+    public List<Prestito> RicercaPrestito(string codiceFiscale)
+    {
+        List<Prestito> trovati = new List<Prestito>();
+
+
+
+        return trovati;
+    }
+
+    public int AmmontareTotalePrestitiCliente(string codiceFiscale)
+    {
+        int ammontare = 0; //metterò il conteggio
+
+        //conteggio...
+
+        return ammontare;
+    }
+
+    public int RateMancantiCliente(string codiceFiscale)
+    {
+        int rateMancanti = 0; //metterò il conteggio
+
+        //conteggio...
+
+        return rateMancanti;
+    }
+
+    public void StampaProspettoClienti()
+    {
+        //stampare per tutti i clienti
+    }
+
+    public void StampaProspettoPrestiti()
+    {
+        //stampa per tutti i prestiti
+    }
+
+
+    public void StampaPrestitoAggiunto(object nuovoPrestito)
+    {
+        Console.WriteLine(nuovoPrestito);
+    }
+
+
 }

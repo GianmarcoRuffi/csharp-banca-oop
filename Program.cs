@@ -40,13 +40,14 @@ Console.WriteLine("Sistema amministrazione banca " + intesa.Nome);
 Console.WriteLine("1 - Creazione nuovo prestito");
 Console.WriteLine("2 - Aggiunta utente");
 Console.WriteLine("3 - Modifica utente");
+Console.WriteLine("4 - Ricerca utente");
 
-int sceltaUser = Convert.ToInt32(Console.ReadLine());
+int sceltaUtente = Convert.ToInt32(Console.ReadLine());
 
 //aggiunta di un prestito
 // 1. chiedo all'utente di cercare il cliente su cui si vuole creare un prestito
 
-if (sceltaUser == 1)
+if (sceltaUtente == 1)
 {
     Console.WriteLine("Creazione di un nuovo prestito");
     Console.WriteLine();
@@ -75,7 +76,7 @@ if (sceltaUser == 1)
 }
 
 
-else if (sceltaUser == 2)
+else if (sceltaUtente == 2)
 //aggiunta di un utente
 //2. chiedo all'utente di inserire i suoi dati
 
@@ -96,10 +97,10 @@ else if (sceltaUser == 2)
         Console.WriteLine("Errore nel processo!");
 }
 
-else if (sceltaUser == 3)
+else if (sceltaUtente == 3)
 
 //modifica di un utente
-//3. chiedo all'utente di inserire il suo nome per la modifica
+//3. inserire il suo cf per la modifica
 {
 
     Console.WriteLine("Inserisci il codice fiscale:");
@@ -124,4 +125,32 @@ else if (sceltaUser == 3)
         else
             Console.WriteLine("Errore durante la modifica");
     }
+}
+
+//ricerca di un utente
+//4. inserire il suo cf per la ricerca
+
+else if (sceltaUtente == 4)
+{
+    Console.WriteLine("Inserisci il codice fiscale:");
+    string codiceFiscale = Console.ReadLine();
+    Cliente cliente = intesa.RicercaCliente(codiceFiscale);
+    if (cliente != null)
+    {
+        Console.WriteLine("Utente trovato nel database:");
+        Console.WriteLine("Nome: " + cliente.Nome);
+        Console.WriteLine("Cognome: " + cliente.Cognome);
+        Console.WriteLine("Stipendio: " + cliente.Stipendio);
+        Console.WriteLine("Codice fiscale: " + cliente.CodiceFiscale);
+
+    }
+    else
+        Console.WriteLine("Utente non trovato nel database");
+
+}
+
+
+else
+{
+    Console.WriteLine("Errore");
 }

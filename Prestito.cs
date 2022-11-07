@@ -29,30 +29,64 @@
 //se invece viene scritto un valore allora andremo a modificare il campo con il nuovo valore
 
 
-Banca intesa = new Banca("Intesa san Paolo");
 
 
-Console.WriteLine("Sistema amministrazione banca " + intesa.Nome);
 
 //aggiunta di un prestito
 // 1. chiedo all'utente di cercare il cliente su cui si vuole creare un prestito
-Console.WriteLine("Creazione di un nuovo prestito");
-Console.WriteLine();
-Console.WriteLine("Inserisci il codice fiscale:");
-string codiceFiscale = Console.ReadLine();
 
-Cliente esistente = intesa.RicercaCliente(codiceFiscale);
 
-if (esistente == null)
+//aggiunta di un prestito
+// 1. chiedo all'utente di cercare il cliente su cui si vuole creare un prestito
+
+
+//I prestiti sono caratterizzati da
+//- ID
+//- intestatario del prestito (il cliente),
+//-un ammontare,
+//-una rata,
+//-una data inizio,
+//- una data fine.
+public class Prestito
 {
-    Console.WriteLine("errore: Cliente non trovato!");
-}
-else
-{
+    private int ammontarePrestito;
 
-    Console.WriteLine("Ammontare del prestito: ");
-    int ammontarePrestito = Convert.ToInt32(Console.ReadLine());
-    Prestito nuovoPrestito = new Prestito(0, ammontarePrestito, 0, new DateOnly(), esistente);
+    //prestito in partenza dalla data specificata
+    public Prestito(int iD, int ammontare, int valoreRata, DateOnly inizio, DateOnly fine, Cliente intestatario)
+    {
+        ID = iD;
+        Ammontare = ammontare;
+        ValoreRata = valoreRata;
+        Inizio = inizio;
+        Fine = fine;
+        Intestatario = intestatario;
+    }
 
-    intesa.AggiungiPrestito(nuovoPrestito);
+    //un prestito in data di oggi
+    public Prestito(int iD, int ammontare, int valoreRata, DateOnly fine, Cliente intestatario)
+    {
+        ID = iD;
+        Ammontare = ammontare;
+        ValoreRata = valoreRata;
+        //data di oggi
+        Inizio = new DateOnly();
+        Fine = fine;
+        Intestatario = intestatario;
+    }
+
+
+
+    public int ID { get; set; }
+    public int Ammontare { get; set; }
+
+    public int ValoreRata { get; set; }
+
+    public DateOnly Inizio { get; set; }
+
+    public DateOnly Fine { get; set; }
+
+    public Cliente Intestatario { get; set; }
+
+
+
 }

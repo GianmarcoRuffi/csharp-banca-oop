@@ -36,23 +36,48 @@ Console.WriteLine("Sistema amministrazione banca " + intesa.Nome);
 
 //aggiunta di un prestito
 // 1. chiedo all'utente di cercare il cliente su cui si vuole creare un prestito
-Console.WriteLine("Creazione di un nuovo prestito");
-Console.WriteLine();
-Console.WriteLine("Inserisci il codice fiscale:");
-string codiceFiscale = Console.ReadLine();
 
-Cliente esistente = intesa.RicercaCliente(codiceFiscale);
+//Console.WriteLine("Creazione di un nuovo prestito");
+//Console.WriteLine();
+//Console.WriteLine("Inserisci il codice fiscale:");
+//string codiceFiscale = Console.ReadLine();
 
-if (esistente == null)
-{
-    Console.WriteLine("errore: Cliente non trovato!");
-}
-else
-{
+//Cliente esistente = intesa.RicercaCliente(codiceFiscale);
 
-    Console.WriteLine("Ammontare del prestito: ");
-    int ammontarePrestito = Convert.ToInt32(Console.ReadLine());
-    Prestito nuovoPrestito = new Prestito(0, ammontarePrestito, 0, new DateOnly(), esistente);
+//if (esistente == null)
+//{
+//    Console.WriteLine("errore: Cliente non trovato!");
+//}
+//else
+//{
 
-    intesa.AggiungiPrestito(nuovoPrestito);
-}
+//    Console.WriteLine("Ammontare del prestito: ");
+//    int ammontarePrestito = Convert.ToInt32(Console.ReadLine());
+//    Prestito nuovoPrestito = new Prestito(0, ammontarePrestito, 0, new DateOnly(), esistente);
+
+//    intesa.AggiungiPrestito(nuovoPrestito);
+   
+    
+//    Console.WriteLine(nuovoPrestito);
+    
+//}
+
+//aggiunta di un utente
+
+
+//2. chiedo all'utente di inserire i suoi dati
+
+
+    Console.WriteLine("Inserisci il codice fiscale:");
+    string codiceFiscale = Console.ReadLine();
+    Console.WriteLine("Inserisci il nome:");
+    string nome = Console.ReadLine();
+    Console.WriteLine("Inserisci il cognome:");
+    string cognome = Console.ReadLine();
+    Console.WriteLine("Inserisci lo stipendio:");
+    int stipendio = Convert.ToInt32(Console.ReadLine());
+    bool aggiunta = intesa.AggiungiCliente(nome, cognome, codiceFiscale, stipendio);
+    if (aggiunta)
+        Console.WriteLine("Utente inserito nel database.");
+    else
+        Console.WriteLine("Errore nel processo!");

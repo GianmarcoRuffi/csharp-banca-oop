@@ -93,7 +93,7 @@ public class Banca
 
         return false;
     }
-    public bool AggiungiCliente(string nome, string cognome, string codiceFiscale, int stipendio, int altezza)
+    public bool AggiungiCliente(string nome, string cognome, string codiceFiscale, int stipendio)
     {
 
         if (

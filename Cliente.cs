@@ -137,10 +137,7 @@ public class Cliente
     }
 
 
-    public void StampaPrestitoAggiunto(object nuovoPrestito)
-    {
-        Console.WriteLine(nuovoPrestito);
-    }
+   
 
 
 }
